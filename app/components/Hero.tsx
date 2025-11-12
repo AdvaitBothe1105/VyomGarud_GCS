@@ -1,26 +1,91 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { FiMenu, FiUser, FiShoppingCart } from "react-icons/fi";
+import { useState } from "react";
+import { FiMenu, FiUser, FiShoppingCart, FiX } from "react-icons/fi";
 
 export default function Hero() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleScroll = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      setIsOpen(false);
+    }
+  };
   return (
-    <section className="relative h-screen w-full flex flex-col justify-between overflow-hidden bg-[url('/drone-hero.png')] bg-cover bg-center text-white">
+    <section id="hero" className="relative h-screen w-full flex flex-col justify-between overflow-hidden bg-[url('/drone-hero.png')] bg-cover bg-center text-white">
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/60" />
 
       {/* Top Navigation */}
       <div className="relative z-10 flex justify-between items-center px-6 md:px-16 py-6">
-        <div className="flex items-center gap-2">
-          <FiMenu className="text-xl cursor-pointer" />
+        <div
+          className="flex items-center gap-2 cursor-pointer"
+          onClick={() => setIsOpen(true)}
+        >
+          <FiMenu className="text-xl" />
           <h1 className="text-lg md:text-xl font-semibold tracking-wide">
             Menu
           </h1>
         </div>
 
+        {/* Sidebar */}
+        <AnimatePresence>
+          {isOpen && (
+            <>
+              {/* Overlay */}
+              <motion.div
+                className="fixed inset-0 bg-black/60 z-40"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setIsOpen(false)}
+              />
+
+              {/* Sidebar Panel */}
+              <motion.aside
+                className="fixed right-0 top-0 h-full w-64 bg-[#121212] z-50 flex flex-col p-6"
+                initial={{ x: "100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "100%" }}
+                transition={{ type: "spring", stiffness: 200, damping: 25 }}
+              >
+                {/* Close Button */}
+                <div className="flex justify-end mb-8">
+                  <FiX
+                    className="text-2xl cursor-pointer hover:text-[#ff7b00] transition"
+                    onClick={() => setIsOpen(false)}
+                  />
+                </div>
+
+                {/* Nav Links */}
+                <nav className="flex flex-col gap-6 text-gray-300 text-lg font-medium">
+                  {[
+                    "hero",
+                    "about",
+                    "capabilities",
+                    "highlights",
+                    "contact",
+                  ].map((id) => (
+                    <button
+                      key={id}
+                      onClick={() => handleScroll(id)}
+                      className="text-left hover:text-[#ff7b00] transition"
+                    >
+                      {id.charAt(0).toUpperCase() + id.slice(1)}
+                    </button>
+                  ))}
+                </nav>
+              </motion.aside>
+            </>
+          )}
+        </AnimatePresence>
+
         <div className="text-2xl font-bold tracking-tight text-gray-100">
-          <Link href="/" >
+          <Link href="/">
             Vyom<span className="text-[#ff7b00]">Garud</span>
           </Link>
         </div>
