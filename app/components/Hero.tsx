@@ -15,21 +15,24 @@ export default function Hero() {
       setIsOpen(false);
     }
   };
+
   return (
-    <section id="hero" className="relative h-screen w-full flex flex-col justify-between overflow-hidden bg-[url('/drone-hero.png')] bg-cover bg-center text-white">
+    <section
+      id="hero"
+      className="relative h-screen w-full flex flex-col justify-between overflow-hidden bg-[url('/drone-hero.png')] bg-cover bg-center text-white"
+    >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/60" />
 
       {/* Top Navigation */}
       <div className="relative z-10 flex justify-between items-center px-6 md:px-16 py-6">
+        {/* Menu */}
         <div
           className="flex items-center gap-2 cursor-pointer"
           onClick={() => setIsOpen(true)}
         >
           <FiMenu className="text-xl" />
-          <h1 className="text-lg md:text-xl font-semibold tracking-wide">
-            Menu
-          </h1>
+          <h1 className="text-lg md:text-xl font-semibold tracking-wide">Menu</h1>
         </div>
 
         {/* Sidebar */}
@@ -53,7 +56,6 @@ export default function Hero() {
                 exit={{ x: "-100%" }}
                 transition={{ type: "spring", stiffness: 200, damping: 25 }}
               >
-                {/* Close Button */}
                 <div className="flex justify-end mb-8">
                   <FiX
                     className="text-2xl cursor-pointer hover:text-[#ff7b00] transition"
@@ -63,33 +65,31 @@ export default function Hero() {
 
                 {/* Nav Links */}
                 <nav className="flex flex-col gap-5 text-gray-300 text-base sm:text-lg font-medium">
-                  {[
-                    "hero",
-                    "about",
-                    "highlights",
-                    "products",
-                    "contact",
-                  ].map((id) => (
-                    <button
-                      key={id}
-                      onClick={() => handleScroll(id)}
-                      className="text-left hover:text-[#ff7b00] transition"
-                    >
-                      {id.charAt(0).toUpperCase() + id.slice(1)}
-                    </button>
-                  ))}
+                  {["hero", "about", "highlights", "products", "contact"].map(
+                    (id) => (
+                      <button
+                        key={id}
+                        onClick={() => handleScroll(id)}
+                        className="text-left hover:text-[#ff7b00] transition"
+                      >
+                        {id.charAt(0).toUpperCase() + id.slice(1)}
+                      </button>
+                    )
+                  )}
                 </nav>
               </motion.aside>
             </>
           )}
         </AnimatePresence>
 
+        {/* Logo */}
         <div className="text-2xl font-bold tracking-tight text-gray-100">
           <Link href="/">
             Vyom<span className="text-[#ff7b00]">Garud</span>
           </Link>
         </div>
 
+        {/* Icons */}
         <div className="flex items-center gap-4">
           <FiShoppingCart className="text-xl cursor-pointer hover:text-[#ff7b00] transition" />
           <FiUser className="text-xl cursor-pointer hover:text-[#ff7b00] transition" />
@@ -97,11 +97,12 @@ export default function Hero() {
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-5 flex flex-col justify-center items-center text-center px-4 md:px-0">
+      <div className="relative z-10 flex flex-col justify-center items-center text-center px-4 md:px-0">
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
+          viewport={{ once: false, amount: 0.4 }}
           className="text-4xl md:text-6xl font-bold tracking-tight mb-4"
         >
           Redefine the Way <span className="text-[#ff7b00]">You Fly</span>
@@ -109,8 +110,9 @@ export default function Hero() {
 
         <motion.p
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 1 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 1 }}
+          viewport={{ once: false, amount: 0.4 }}
           className="text-gray-300 max-w-xl text-sm md:text-lg mb-8"
         >
           Turn every mission into a masterpiece with precision-engineered UAV
@@ -119,8 +121,9 @@ export default function Hero() {
 
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1, duration: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.6, duration: 0.8 }}
+          viewport={{ once: false, amount: 0.4 }}
           className="flex gap-4"
         >
           <button
@@ -141,9 +144,10 @@ export default function Hero() {
       {/* Bottom Feature Icons */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.5, duration: 0.8 }}
-        className="relative z-5 flex justify-center gap-8 md:gap-16 pb-12 text-gray-300 text-sm"
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5, duration: 0.8 }}
+        viewport={{ once: false, amount: 0.3 }}
+        className="relative z-10 flex justify-center gap-8 md:gap-16 pb-12 text-gray-300 text-sm"
       >
         <div className="flex flex-col items-center">
           <span className="font-semibold text-white">4K UHD</span>
@@ -162,8 +166,9 @@ export default function Hero() {
       {/* Background Animation Layer */}
       <motion.div
         initial={{ scale: 1.05, opacity: 0.8 }}
-        animate={{ scale: 1, opacity: 1 }}
+        whileInView={{ scale: 1, opacity: 1 }}
         transition={{ duration: 4, ease: "easeOut" }}
+        viewport={{ once: false, amount: 0.2 }}
         className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/40"
       />
     </section>
