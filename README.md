@@ -67,6 +67,22 @@ Then open [http://localhost:3000](http://localhost:3000) to view the landing pag
 - Static assets live under `public/`, allowing `next/image` to optimize them automatically.
 - Tailwind classes drive the majority of layout/styling. Adjust global tokens (colors, fonts) in `globals.css` for brand updates.
 
+## 🖼️ Screenshots
+
+<div align="center">
+  <img src="public/Screenshot%201.png" alt="Hero section" width="800" />
+  <br />
+  <img src="public/Screenshot%202.png" alt="Side navigation" width="800" />
+  <br />
+  <img src="public/Screenshot%203.png" alt="About section" width="800" />
+  <br />
+  <img src="public/Screenshot%204.png" alt="Products section" width="800" />
+  <br />
+  <img src="public/Screenshot%205.png" alt="Highlights section" width="800" />
+  <br />
+  <img src="public/Screenshot%206.png" alt="Contact section" width="800" />
+</div>
+
 ## 📦 Deployment
 
 This is a static marketing page and deploys seamlessly to platforms that support Next.js (Vercel, Netlify, etc.). Build with:
