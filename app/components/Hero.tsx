@@ -47,10 +47,10 @@ export default function Hero() {
 
               {/* Sidebar Panel */}
               <motion.aside
-                className="fixed right-0 top-0 h-full w-64 bg-[#121212] z-50 flex flex-col p-6"
-                initial={{ x: "100%" }}
+                className="fixed left-0 top-0 h-full w-[75%] max-w-sm sm:max-w-md md:w-96 bg-[#121212] z-50 flex flex-col p-6 sm:p-7"
+                initial={{ x: "-100%" }}
                 animate={{ x: 0 }}
-                exit={{ x: "100%" }}
+                exit={{ x: "-100%" }}
                 transition={{ type: "spring", stiffness: 200, damping: 25 }}
               >
                 {/* Close Button */}
@@ -62,12 +62,12 @@ export default function Hero() {
                 </div>
 
                 {/* Nav Links */}
-                <nav className="flex flex-col gap-6 text-gray-300 text-lg font-medium">
+                <nav className="flex flex-col gap-5 text-gray-300 text-base sm:text-lg font-medium">
                   {[
                     "hero",
                     "about",
-                    "capabilities",
                     "highlights",
+                    "products",
                     "contact",
                   ].map((id) => (
                     <button
@@ -97,7 +97,7 @@ export default function Hero() {
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-10 flex flex-col justify-center items-center text-center px-4 md:px-0">
+      <div className="relative z-5 flex flex-col justify-center items-center text-center px-4 md:px-0">
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -123,10 +123,16 @@ export default function Hero() {
           transition={{ delay: 1, duration: 0.8 }}
           className="flex gap-4"
         >
-          <button className="px-6 py-3 rounded-full border border-gray-400 hover:bg-[#ff7b00] hover:border-[#ff7b00] transition font-medium">
+          <button
+            onClick={() => handleScroll("highlights")}
+            className="px-6 py-3 rounded-full border border-gray-400 hover:bg-[#ff7b00] hover:border-[#ff7b00] transition font-medium"
+          >
             View Features
           </button>
-          <button className="px-6 py-3 rounded-full bg-[#ff7b00] hover:bg-[#ff9933] transition font-medium">
+          <button
+            onClick={() => handleScroll("products")}
+            className="px-6 py-3 rounded-full bg-[#ff7b00] hover:bg-[#ff9933] transition font-medium"
+          >
             Shop Now
           </button>
         </motion.div>
@@ -137,7 +143,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.5, duration: 0.8 }}
-        className="relative z-10 flex justify-center gap-8 md:gap-16 pb-12 text-gray-300 text-sm"
+        className="relative z-5 flex justify-center gap-8 md:gap-16 pb-12 text-gray-300 text-sm"
       >
         <div className="flex flex-col items-center">
           <span className="font-semibold text-white">4K UHD</span>

@@ -26,7 +26,7 @@ const products = [
   {
     id: 1,
     name: "Phantom X Pro",
-    image: "/drone1.png",
+    image: "/drone13.png",
     label: "Deploy",
     desc: "Cinematic aerial performance with adaptive AI stabilization.",
     tier: "Recon Command",
@@ -66,9 +66,9 @@ const products = [
 
 export default function ProductShowcase() {
   return (
-    <section id="products" className="py-24 px-6 md:px-20 bg-[#0f0f0f] text-white relative overflow-hidden">
+    <section id="highlights" className="py-34 px-6 md:px-20 bg-[#0f0f0f] text-white relative overflow-hidden">
       {/* Main Performance Section */}
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center mb-24 relative">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center mb-34 relative">
         {/* Simplified ambient glow */}
         <div className="pointer-events-none absolute -top-20 -left-32 h-64 w-64 rounded-full bg-[#ff7b00]/8 blur-[100px]" />
         <div className="pointer-events-none absolute -bottom-12 -right-24 h-56 w-56 rounded-full bg-[#ff7b00]/8 blur-[90px]" />
@@ -78,7 +78,7 @@ export default function ProductShowcase() {
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.3, margin: "0px 0px -150px 0px" }}
           className="relative flex justify-center"
         >
           <div className="absolute -inset-6 bg-gradient-to-tr from-[#141414] to-[#0f0f0f] rounded-2xl border border-gray-800/60 shadow-xl" />
@@ -87,7 +87,7 @@ export default function ProductShowcase() {
             alt="VyomGarud Drone"
             width={600}
             height={400}
-            className="relative z-10 object-contain drop-shadow-[0_0_40px_rgba(255,123,0,0.25)]"
+            className="relative z-5 object-contain drop-shadow-[0_0_40px_rgba(255,123,0,0.25)]"
             loading="eager"
             priority
           />
@@ -101,7 +101,7 @@ export default function ProductShowcase() {
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.3, margin: "0px 0px -150px 0px" }}
           className="relative"
         >
           <div className="flex items-center gap-3 text-[10px] tracking-[0.4em] uppercase text-gray-400/80 font-light mb-5">
@@ -125,7 +125,7 @@ export default function ProductShowcase() {
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 + 0.3, duration: 0.4 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.2, margin: "0px 0px -50px 0px" }}
                 className="relative rounded-lg border border-gray-800 bg-[#131313] p-4 transition-all duration-300 hover:border-[#ff7b00]/60 hover:shadow-md hover:shadow-[#ff7b00]/10"
               >
                 <div className="absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-[#ff7b00] to-transparent rounded-full" />
@@ -142,8 +142,9 @@ export default function ProductShowcase() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.3, margin: "0px 0px -100px 0px" }}
         className="text-center mb-10"
+        id="products"
       >
         <h2 className="text-4xl font-bold mb-3">
           Explore Our <span className="text-[#ff7b00]">Top Drones</span>
@@ -161,7 +162,7 @@ export default function ProductShowcase() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2, margin: "0px 0px -80px 0px" }}
             className="relative group overflow-hidden rounded-xl border border-gray-800 bg-[#141414] transition-all duration-300 hover:border-[#ff7b00]/60 hover:shadow-lg hover:shadow-[#ff7b00]/10"
           >
             {/* Simplified corner accents */}

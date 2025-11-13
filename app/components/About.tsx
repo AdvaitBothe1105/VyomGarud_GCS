@@ -26,7 +26,7 @@ const missionCards = [
 export default function About() {
   return (
     <section
-      id="mission"
+      id="about"
       className="py-20 px-6 md:px-20 bg-[#0f0f0f] text-white relative overflow-hidden"
     >
       {/* Ambient glow effects */}
@@ -35,13 +35,13 @@ export default function About() {
         <div className="absolute bottom-1/4 right-1/4 h-80 w-80 rounded-full bg-[#ff7b00]/5 blur-[100px]" />
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-5">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.3, margin: "0px 0px -150px 0px" }}
           className="text-center mb-16"
         >
           <div className="inline-flex items-center gap-3 text-[10px] tracking-[0.4em] uppercase text-gray-400/80 font-light mb-5">
@@ -68,7 +68,7 @@ export default function About() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.15, duration: 0.6 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0.3, margin: "0px 0px -100px 0px" }}
               className="relative group"
             >
               {/* Card Container */}
