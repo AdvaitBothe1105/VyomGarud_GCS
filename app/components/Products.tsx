@@ -5,61 +5,61 @@ import Image from "next/image";
 
 const features = [
   {
-    title: "8K Ultra HD Camera",
-    desc: "Capture cinematic detail from every angle.",
+    title: "Mission Automation Engine",
+    desc: "Chain together pre-flight checks, NOTAM ingestion, and launch approvals.",
   },
   {
-    title: "Smart Obstacle Avoidance",
-    desc: "Fly with confidence — our AI-powered sensors keep you safe.",
+    title: "Multi-Link Router",
+    desc: "Blend LTE, SATCOM, and RF pipes with automated failover logic.",
   },
   {
-    title: "45-Minute Flight Time",
-    desc: "Explore farther, shoot longer.",
+    title: "Operator Co-Pilot",
+    desc: "Surface AI recommendations for reroutes, targets, and geofencing.",
   },
   {
-    title: "Foldable & Travel-Ready",
-    desc: "Compact design that goes wherever you go.",
+    title: "Payload Studio",
+    desc: "Stream, tag, and distribute EO/IR and LiDAR feeds instantly.",
   },
 ];
 
-const products = [
+const modules = [
   {
     id: 1,
-    name: "Phantom X Pro",
+    name: "Mission Orchestrator",
     image: "/drone13.png",
-    label: "Deploy",
-    desc: "Cinematic aerial performance with adaptive AI stabilization.",
-    tier: "Recon Command",
+    label: "Launch",
+    desc: "Design sorties, assign crews, and monitor execution in a timeline-native view.",
+    tier: "Mission Control",
     specs: [
-      { label: "Speed", value: "108 km/h" },
-      { label: "Range", value: "24 km" },
-      { label: "Flight", value: "47 min" },
+      { label: "Playbooks", value: "50+" },
+      { label: "Airspace", value: "Live" },
+      { label: "Handovers", value: "Secure" },
     ],
   },
   {
     id: 2,
-    name: "AeroScout Mini",
+    name: "Link Intelligence Hub",
     image: "/drone2.png",
-    label: "Briefing",
-    desc: "Compact, foldable, and ultra-portable — your perfect travel drone.",
-    tier: "Rapid Response",
+    label: "Configure",
+    desc: "Continuously assess link health, push modulation changes, and trigger failovers.",
+    tier: "Comms Layer",
     specs: [
-      { label: "Speed", value: "86 km/h" },
-      { label: "Range", value: "16 km" },
-      { label: "Flight", value: "38 min" },
+      { label: "Pipes", value: "4+" },
+      { label: "Latency", value: "<200ms" },
+      { label: "Uptime", value: "99.9%" },
     ],
   },
   {
     id: 3,
-    name: "Volt XRT",
+    name: "Sensor Fusion Studio",
     image: "/drone3.png",
-    label: "Details",
-    desc: "Engineered for endurance and precision industrial missions.",
-    tier: "Industrial Strike",
+    label: "Stream",
+    desc: "Fuse EO/IR, radar, and ADS-B feeds with AI tags for faster intel cycles.",
+    tier: "Data Layer",
     specs: [
-      { label: "Speed", value: "120 km/h" },
-      { label: "Range", value: "32 km" },
-      { label: "Flight", value: "52 min" },
+      { label: "Feeds", value: "12" },
+      { label: "Storage", value: "Petabyte" },
+      { label: "Sharing", value: "Live" },
     ],
   },
 ];
@@ -67,7 +67,7 @@ const products = [
 export default function ProductShowcase() {
   return (
     <section
-      id="highlights"
+      id="products"
       className="py-34 px-6 md:px-20 bg-[#0f0f0f] text-white relative overflow-hidden"
     >
       {/* Main Performance Section */}
@@ -108,18 +108,19 @@ export default function ProductShowcase() {
         >
           <div className="flex items-center gap-3 text-[10px] tracking-[0.4em] uppercase text-gray-400/80 font-light mb-5">
             <span className="h-px w-10 bg-gradient-to-r from-[#ff7b00] to-transparent" />
-            Tactical Aerodynamics
+            Ground Segment
           </div>
 
           <h2 className="text-4xl md:text-5xl font-semibold mb-5 leading-tight text-white">
-            Next-Level Performance
+            Integrated Ground Control Stack
             <span className="block text-2xl md:text-3xl text-gray-300 font-light">
               Engineered for Elite Missions
             </span>
           </h2>
 
           <p className="text-gray-400/90 max-w-lg mb-7">
-            A fusion of carbon-grade resilience, AI stabilization, and mission-ready agility crafted for hostile theatres.
+            Stitch together flight plans, communications, and sensor intelligence
+            into a cohesive operating picture purpose-built for contested environments.
           </p>
 
           <ul className="grid sm:grid-cols-2 gap-4">
@@ -150,20 +151,20 @@ export default function ProductShowcase() {
         transition={{ duration: 0.5 }}
         viewport={{ once: false, amount: 0.4 }}
         className="text-center mb-10"
-        id="products"
+        id="modules"
       >
         <h2 className="text-4xl font-bold mb-3">
-          Explore Our <span className="text-[#ff7b00]">Top Drones</span>
+          Explore Our <span className="text-[#ff7b00]">GCS Modules</span>
         </h2>
         <p className="text-gray-400 max-w-2xl mx-auto">
-          Precision-engineered UAVs built for power, endurance, and autonomy.
+          Assemble the perfect stack—from mission planning to data exploitation—within a single secure platform.
         </p>
       </motion.div>
 
       {/* Product Cards */}
       <div className="max-w-7xl mx-auto">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product, index) => (
+          {modules.map((product, index) => (
             <motion.div
               key={product.id}
               initial={{ opacity: 0, y: 30 }}

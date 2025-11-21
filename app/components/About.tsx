@@ -4,21 +4,21 @@ import { motion } from "framer-motion";
 
 const missionCards = [
   {
-    title: "LIMITLESS CONNECTIVITY",
+    title: "UNIFIED OPS CONSOLE",
     description:
-      "Cellular and LoRa-based hybrid communication enabling seamless command, control, and multi-drone coordination.",
+      "Single-pane monitoring for every aircraft, payload, and crew with configurable layouts and live mission timelines.",
     number: "01",
   },
   {
-    title: "MILITARY-GRADE PRECISION",
+    title: "RESILIENT LINK INTELLIGENCE",
     description:
-      "Cutting-edge avionics, AI-driven telemetry, and secure cloud infrastructure for unmatched situational awareness.",
+      "Hybrid SATCOM, LTE, and RF orchestration that automatically fails over to keep the command loop online.",
     number: "02",
   },
   {
-    title: "AUTONOMOUS RESILIENCE",
+    title: "HUMAN + AI COLLABORATION",
     description:
-      "Engineering the future through autonomy, resilience, and connectivity—built for limitless-range operations.",
+      "AI copilots surface insights, while operators maintain positive control through contextual workflows and guardrails.",
     number: "03",
   },
 ];
@@ -51,14 +51,14 @@ export default function About() {
           </div>
 
           <h2 className="text-4xl md:text-5xl font-semibold mb-4">
-            Engineering the Future of{" "}
-            <span className="text-[#ff7b00]">Aerial Operations</span>
+            Building the Nerve Center for{" "}
+            <span className="text-[#ff7b00]">Autonomous Fleets</span>
           </h2>
 
           <p className="text-gray-400 max-w-3xl mx-auto text-lg leading-relaxed">
-            We specialize in limitless-range UAVs powered by cellular and
-            LoRa-based hybrid communication, enabling seamless command, control,
-            and multi-drone coordination even in challenging environments.
+            VyomGarud GCS fuses flight operations, payload control, compliance,
+            and data streaming into a hardened ground platform designed for
+            enterprise and defense realities.
           </p>
         </motion.div>
 

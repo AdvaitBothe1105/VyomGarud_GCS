@@ -5,6 +5,20 @@ import Link from "next/link";
 import { useState } from "react";
 import { FiMenu, FiUser, FiShoppingCart, FiX } from "react-icons/fi";
 
+const sidebarItems = [
+  { id: "hero", label: "Overview" },
+  { id: "about", label: "Mission" },
+  { id: "highlights", label: "Capabilities" },
+  { id: "products", label: "Modules" },
+  { id: "contact", label: "Contact" },
+];
+
+const statHighlights = [
+  { label: "120+", description: "Fleet Profiles" },
+  { label: "<200 ms", description: "Command Latency" },
+  { label: "AES-256", description: "End-to-End Security" },
+];
+
 export default function Hero() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -65,17 +79,23 @@ export default function Hero() {
 
                 {/* Nav Links */}
                 <nav className="flex flex-col gap-5 text-gray-300 text-base sm:text-lg font-medium">
-                  {["hero", "about", "highlights", "products", "contact"].map(
-                    (id) => (
-                      <button
-                        key={id}
-                        onClick={() => handleScroll(id)}
-                        className="text-left hover:text-[#ff7b00] transition"
-                      >
-                        {id.charAt(0).toUpperCase() + id.slice(1)}
-                      </button>
-                    )
-                  )}
+                  {sidebarItems.map((item) => (
+                    <button
+                      key={item.id}
+                      onClick={() => handleScroll(item.id)}
+                      className="text-left hover:text-[#ff7b00] transition"
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+
+                  <Link
+                    href="/gcs"
+                    className="mt-6 inline-flex items-center text-[#ff7b00] hover:text-[#ff9933] transition"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    GCS Command Center
+                  </Link>
                 </nav>
               </motion.aside>
             </>
@@ -91,6 +111,12 @@ export default function Hero() {
 
         {/* Icons */}
         <div className="flex items-center gap-4">
+          <Link
+            href="/gcs"
+            className="hidden md:inline-flex items-center gap-2 rounded-full border border-[#ff7b00]/50 px-4 py-2 text-sm font-semibold text-[#ff7b00] hover:border-[#ff9933] hover:text-[#ff9933] transition"
+          >
+            GCS Page
+          </Link>
           <FiShoppingCart className="text-xl cursor-pointer hover:text-[#ff7b00] transition" />
           <FiUser className="text-xl cursor-pointer hover:text-[#ff7b00] transition" />
         </div>
@@ -105,7 +131,8 @@ export default function Hero() {
           viewport={{ once: false, amount: 0.4 }}
           className="text-4xl md:text-6xl font-bold tracking-tight mb-4"
         >
-          Redefine the Way <span className="text-[#ff7b00]">You Fly</span>
+          Command Every Mission with{" "}
+          <span className="text-[#ff7b00]">VyomGarud GCS</span>
         </motion.h2>
 
         <motion.p
@@ -115,8 +142,9 @@ export default function Hero() {
           viewport={{ once: false, amount: 0.4 }}
           className="text-gray-300 max-w-xl text-sm md:text-lg mb-8"
         >
-          Turn every mission into a masterpiece with precision-engineered UAV
-          systems built for performance, autonomy, and resilience.
+          Consolidate fleets, payloads, and airspace data into a single ground
+          console that delivers live telemetry, resilient comms, and AI-backed
+          decision support.
         </motion.p>
 
         <motion.div
@@ -130,14 +158,14 @@ export default function Hero() {
             onClick={() => handleScroll("highlights")}
             className="px-6 py-3 rounded-full border border-gray-400 hover:bg-[#ff7b00] hover:border-[#ff7b00] transition font-medium"
           >
-            View Features
+            See Capabilities
           </button>
-          <button
-            onClick={() => handleScroll("products")}
+          <Link
+            href="/gcs"
             className="px-6 py-3 rounded-full bg-[#ff7b00] hover:bg-[#ff9933] transition font-medium"
           >
-            Shop Now
-          </button>
+            Open GCS Page
+          </Link>
         </motion.div>
       </div>
 
@@ -149,18 +177,12 @@ export default function Hero() {
         viewport={{ once: false, amount: 0.3 }}
         className="relative z-10 flex justify-center gap-8 md:gap-16 pb-12 text-gray-300 text-sm"
       >
-        <div className="flex flex-col items-center">
-          <span className="font-semibold text-white">4K UHD</span>
-          <span className="text-gray-400">Camera Quality</span>
-        </div>
-        <div className="flex flex-col items-center">
-          <span className="font-semibold text-white">25 km</span>
-          <span className="text-gray-400">Control Range</span>
-        </div>
-        <div className="flex flex-col items-center">
-          <span className="font-semibold text-white">70 min</span>
-          <span className="text-gray-400">Flight Time</span>
-        </div>
+        {statHighlights.map((stat) => (
+          <div key={stat.label} className="flex flex-col items-center">
+            <span className="font-semibold text-white">{stat.label}</span>
+            <span className="text-gray-400">{stat.description}</span>
+          </div>
+        ))}
       </motion.div>
 
       {/* Background Animation Layer */}

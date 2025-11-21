@@ -4,16 +4,19 @@ import { motion } from "framer-motion";
 
 const highlights = [
   {
-    title: "Limitless Range",
-    description: "Cellular and LoRa hybrid communication for unlimited operational reach.",
+    title: "Live Digital Twin",
+    description:
+      "Render every aircraft, pilot, airspace alert, and payload feed on a synchronized operational timeline.",
   },
   {
-    title: "AI-Powered Autonomy",
-    description: "Intelligent systems enabling fully autonomous mission execution.",
+    title: "Edge Intelligence",
+    description:
+      "Deploy AI copilots that classify objects, detect anomalies, and recommend playbooks in real time.",
   },
   {
-    title: "Military-Grade Security",
-    description: "Secure cloud infrastructure with enterprise-level protection.",
+    title: "Governance & Audit",
+    description:
+      "Role-based controls, encrypted comms, and exportable audit trails that satisfy enterprise and defense mandates.",
   },
 ];
 
@@ -45,7 +48,7 @@ export default function Highlights() {
           </div>
 
           <h2 className="text-4xl md:text-5xl font-semibold mb-4">
-            Why <span className="text-[#ff7b00]">VyomGarud?</span>
+            Core <span className="text-[#ff7b00]">GCS Capabilities</span>
           </h2>
         </motion.div>
 

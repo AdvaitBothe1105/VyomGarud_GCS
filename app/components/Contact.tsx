@@ -5,19 +5,19 @@ import { useState } from "react";
 
 const contactInfo = [
   {
-    label: "Email",
-    value: "contact@vyomgarud.com",
-    href: "mailto:contact@vyomgarud.com",
+    label: "Solutions Desk",
+    value: "gcs@vyomgarud.com",
+    href: "mailto:gcs@vyomgarud.com",
   },
   {
-    label: "Phone",
-    value: "+91 123-4567",
-    href: "tel:+15551234567",
+    label: "Command Hotline",
+    value: "+91 987-654-3210",
+    href: "tel:+919876543210",
   },
   {
-    label: "Location",
-    value: "India",
-    href: "#",
+    label: "Ops Center",
+    value: "Bengaluru, India",
+    href: "https://maps.google.com",
   },
 ];
 
@@ -30,7 +30,7 @@ export default function Contact() {
     setIsSubmitting(true);
 
     setTimeout(() => {
-      alert("Message sent!");
+      alert("Request sent! Our GCS team will reach out shortly.");
       setForm({ name: "", email: "", message: "" });
       setIsSubmitting(false);
     }, 1000);
@@ -64,11 +64,11 @@ export default function Contact() {
           </div>
 
           <h2 className="text-4xl md:text-5xl font-semibold mb-4">
-            Ready to <span className="text-[#ff7b00]">Deploy?</span>
+            Schedule a <span className="text-[#ff7b00]">GCS Demo</span>
           </h2>
 
           <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-            Connect with our team to discuss your UAV requirements and explore how VyomGarud can elevate your operations.
+            Share your mission profile and we will configure a VyomGarud GCS workspace tailored to your fleet, payloads, and CONOPS.
           </p>
         </motion.div>
 
@@ -87,7 +87,7 @@ export default function Contact() {
                 Contact Information
               </h3>
               <p className="text-gray-400 mb-8">
-                Reach out through any of these channels. Our team is ready to assist you.
+                Reach out through any of these channels. Our ground segment engineers are ready to assist you.
               </p>
             </div>
 
@@ -174,7 +174,7 @@ export default function Contact() {
               {/* Message */}
               <div>
                 <label className="block text-xs uppercase tracking-[0.2em] text-gray-500 mb-2">
-                  Message
+                  Mission Overview
                 </label>
                 <textarea
                   value={form.message}
