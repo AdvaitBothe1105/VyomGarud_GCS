@@ -5,6 +5,7 @@ import { useMemo } from "react";
 import dynamic from "next/dynamic";
 import Charts from "../components/Charts";
 import Panels from "../components/Panels";
+import CommandControl from "../components/CommandControl";
 import { useTelemetry } from "@/lib/useTelemetry";
 import type { LatLngExpression } from "leaflet";
 
@@ -38,7 +39,7 @@ export default function GcsPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-white">
       <header className="border-b border-white/5 bg-slate-900/70 backdrop-blur px-6 py-5">
-        <div className="mx-auto flex max-w-6xl flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-4">
             <div className="rounded-2xl bg-slate-800/70 p-3 text-sm font-semibold tracking-[0.4em] text-[#ff7b00]">
               VG
@@ -65,25 +66,33 @@ export default function GcsPage() {
         </div>
       </header>
 
-      <main className="mx-auto grid max-w-6xl gap-6 px-6 py-8 lg:grid-cols-3">
-        <section className="lg:col-span-2 space-y-6">
+      <main className="grid h-[calc(100vh-80px)] grid-cols-12 gap-4 p-6">
+        {/* Left Section - Map and Charts */}
+        <section className="col-span-12 space-y-4 lg:col-span-8">
           <MapViewDynamic latest={latest} points={track} />
           <Charts history={history} />
         </section>
 
-        <aside className="space-y-6">
+        {/* Right Section - Controls and Panels */}
+        <aside className="col-span-12 space-y-4 lg:col-span-4">
+          <CommandControl wsUrl={wsUrl} latest={latest} />
           <Panels latest={latest} />
+        </aside>
 
+        {/* Console - Full Width Bottom */}
+        <div className="col-span-12">
           <div className="rounded-2xl border border-white/5 bg-slate-900/60 p-4 shadow shadow-black/30">
-            <div className="mb-2 flex items-center justify-between text-xs uppercase tracking-[0.35em] text-slate-400">
-              <span>Raw Telemetry</span>
+            <div className="mb-3 flex items-center justify-between border-b border-white/5 pb-2">
+              <h3 className="text-xs font-semibold uppercase tracking-[0.35em] text-[#ff7b00]">
+                Telemetry Console
+              </h3>
               <span className="text-[10px] text-slate-500">WS: {wsUrl}</span>
             </div>
-            <pre className="max-h-64 overflow-auto rounded-lg bg-slate-950/60 p-3 text-[11px] leading-relaxed text-slate-200">
+            <pre className="max-h-64 overflow-auto rounded-lg bg-slate-950/80 p-4 text-[11px] leading-relaxed text-slate-200 font-mono">
               {rawTelemetry}
             </pre>
           </div>
-        </aside>
+        </div>
       </main>
     </div>
   );

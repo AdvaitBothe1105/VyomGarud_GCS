@@ -38,21 +38,21 @@ export default function Charts({ history }: ChartsProps) {
       title: "Altitude", 
       unit: "m",
       key: "alt", 
-      color: "#60a5fa",
+      color: "#ff7b00",
       strokeWidth: 2,
     },
     { 
       title: "Ground Speed", 
       unit: "m/s",
       key: "speed", 
-      color: "#34d399",
+      color: "#ff7b00",
       strokeWidth: 2,
     },
     { 
       title: "Battery", 
       unit: "%",
       key: "battery", 
-      color: "#f97316",
+      color: "#ff7b00",
       domain: [0, 100] as [number, number],
       strokeWidth: 2,
     },
@@ -69,10 +69,10 @@ export default function Charts({ history }: ChartsProps) {
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
       return (
-        <div className="rounded-lg border border-white/10 bg-slate-900/95 p-3 shadow-lg backdrop-blur">
+        <div className="rounded-lg border border-[#ff7b00]/30 bg-slate-900/95 p-3 shadow-lg backdrop-blur">
           <p className="text-xs text-slate-400 mb-1">{label}</p>
           {payload.map((entry: any, idx: number) => (
-            <p key={idx} className="text-sm font-semibold" style={{ color: entry.color }}>
+            <p key={idx} className="text-sm font-semibold text-[#ff7b00]">
               {entry.name}: {entry.value !== null ? entry.value.toFixed(2) : "N/A"} {entry.dataKey === "alt" ? "m" : entry.dataKey === "speed" ? "m/s" : "%"}
             </p>
           ))}
@@ -115,20 +115,27 @@ export default function Charts({ history }: ChartsProps) {
                   />
                   <YAxis 
                     domain={chart.domain ?? ["auto", "auto"]}
-                    stroke="rgba(148, 163, 184, 0.5)"
-                    tick={{ fill: "rgba(148, 163, 184, 0.7)", fontSize: 11 }}
+                    stroke="rgba(255, 123, 0, 0.3)"
+                    tick={{ fill: "rgba(255, 123, 0, 0.7)", fontSize: 11 }}
                     width={50}
                   />
-                  <Tooltip content={<CustomTooltip />} />
+                  <Tooltip 
+                    content={<CustomTooltip />}
+                    contentStyle={{
+                      backgroundColor: "rgba(15, 23, 42, 0.95)",
+                      border: "1px solid rgba(255, 123, 0, 0.3)",
+                      borderRadius: "8px",
+                    }}
+                  />
                   <Line
-                    type="monotone"
+                    type="linear"
                     dataKey={chart.key}
                     stroke={chart.color}
                     strokeWidth={chart.strokeWidth}
                     dot={false}
                     activeDot={{ r: 4, fill: chart.color }}
-                    isAnimationActive={true}
-                    animationDuration={300}
+                    isAnimationActive={false}
+                    connectNulls={true}
                   />
                 </LineChart>
               </ResponsiveContainer>
