@@ -18,6 +18,7 @@ const MapViewDynamic = dynamic(() => import("../components/MapView"), {
   ),
 });
 
+
 export default function GcsPage() {
   const wsUrl = process.env.NEXT_PUBLIC_WS_URL ?? "ws://localhost:8001";
   const { latest, getPoints } = useTelemetry(wsUrl);
@@ -35,7 +36,6 @@ export default function GcsPage() {
 
   const lastUpdate = latest ? new Date(latest.ts).toLocaleTimeString() : "—";
   const packets = history.length;
-
   return (
     <div className="min-h-screen bg-slate-950 text-white">
       <header className="border-b border-white/5 bg-slate-900/70 backdrop-blur px-6 py-5">
@@ -66,7 +66,7 @@ export default function GcsPage() {
         </div>
       </header>
 
-      <main className="grid h-[calc(100vh-80px)] grid-cols-12 gap-4 p-6">
+      <main className="grid h-[calc(100vh-80px)] grid-cols-12 gap-4 p-6 overflow-auto">
         {/* Left Section - Map and Charts */}
         <section className="col-span-12 space-y-4 lg:col-span-8">
           <MapViewDynamic latest={latest} points={track} />
